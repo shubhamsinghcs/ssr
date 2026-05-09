@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 0. Theme Mode (Light/Dark with persistence)
+    // 0. Theme Mode (Light/Dark)
     const root = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme');
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 0.5 Active section state while scrolling (Scrollspy)
+    // 0.5 Active section state while scrolling
     const sectionLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     const sectionIds = Array.from(sectionLinks)
         .map((link) => link.getAttribute('href'))
