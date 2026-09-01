@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         sections.forEach((section) => observer.observe(section));
-        setActiveNav(sections[0].id);
 
         sectionLinks.forEach((link) => {
             link.addEventListener('click', () => {
