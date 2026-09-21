@@ -73,3 +73,20 @@ export interface CandidateHiringProfile {
     skills: string[];
   }[];
 }
+
+export interface ResumeExperienceItem {
+  id: string;
+  role: string;
+  type: string;
+  company: string;
+  period: string;
+  location: string;
+  highlights: string[];
+}
+
+export interface ResumeProjectItem {
+  title: string;
+  technologies: string[];
+  githubUrl: string;
+  description: string;
+}

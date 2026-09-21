@@ -169,7 +169,7 @@ export const PROJECTS: Project[] = [
       technicalImplementation: [
         {
           title: 'Semantic HTML5 Content Outlining',
-          description: 'Utilized proper sectioning elements (article, section, nav, main) to ensure seamless screen reader navigation.'
+          description: 'Utilized proper sectioning elements (article, section, nav, main) to support clear screen reader navigation.'
         },
         {
           title: 'Instant Client-Side Filtering',
@@ -238,7 +238,7 @@ export const PROJECTS: Project[] = [
           solution: 'Adopted modular component structuring to implement client revision requests within hours.'
         }
       ],
-      responsiveBehavior: 'Seamlessly reflows from mobile vertical cards to multi-column desktop grids.',
+      responsiveBehavior: 'Reflows from mobile vertical cards to multi-column desktop grids.',
       accessibility: 'Accessible form inputs with explicit labels, focus states, and aria-describedby validation hints.',
       performance: 'Clean static delivery with 0.00 CLS and rapid time-to-interactive.',
       results: [
@@ -272,7 +272,7 @@ export const PROJECTS: Project[] = [
       goals: [
         'Deliver a minimal, architectural editorial design that lets spatial photography shine',
         'Optimize high-resolution project galleries for fast mobile browsing',
-        'Ensure seamless navigation across commercial and residential project archives',
+        'Ensure consistent navigation across commercial and residential project archives',
         'Deploy on client domain with zero downtime'
       ],
       roleAndResponsibilities: 'Developed frontend layouts, implemented responsive image carousels and lightbox views, and optimized rendering performance for desktop and mobile.',

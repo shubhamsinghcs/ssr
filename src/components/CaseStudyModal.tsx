@@ -31,7 +31,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/80 backdrop-blur-md overflow-y-auto">
       <div 
-        className="relative w-full max-w-5xl bg-[#0B0B0C] border border-[#242426] rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col"
+        className="case-study-dialog relative w-full max-w-5xl bg-[#0B0B0C] border border-[#242426] rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"

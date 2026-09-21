@@ -21,9 +21,9 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
     : PROJECTS.filter(p => p.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="projects" className="pt-12 pb-16 md:pt-20 md:pb-20 px-6 md:px-12 max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#242426]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-[#242426]">
         <div>
           <span className="text-xs font-mono uppercase tracking-widest text-[#7C7CFF] mb-3 block">
             SELECTED PROJECTS & PRODUCTION WORK
@@ -69,7 +69,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
       </div>
 
       {/* Projects List */}
-      <div id="project-list" role="tabpanel" className="space-y-16 md:space-y-20">
+      <div id="project-list" role="tabpanel" className="space-y-12 md:space-y-16">
         {filteredProjects.map((project) => (
           <article
             key={project.id}
@@ -91,20 +91,6 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
             {/* Content & Metadata Area */}
             <div className="min-w-0 flex flex-col justify-between h-full space-y-6">
               <div className="space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-mono text-[#D4D4D8] bg-[#161619] border border-[#27272A] px-2.5 py-1 rounded">
-                      {project.category === 'client' ? 'Client Project' : 'Personal Project'}
-                    </span>
-                    <span className="text-xs font-mono text-[#7C7CFF] bg-[#111113] border border-[#242426] px-2.5 py-1 rounded">
-                      {project.role}
-                    </span>
-                  </div>
-                  <span className="text-xs font-mono text-emerald-400 bg-emerald-950/30 border border-emerald-800/40 px-2 py-0.5 rounded">
-                    {project.metrics}
-                  </span>
-                </div>
-
                 <h3 className="text-2xl font-bold text-[#F5F5F5] group-hover:text-[#7C7CFF] transition-colors">
                   {project.title}
                 </h3>

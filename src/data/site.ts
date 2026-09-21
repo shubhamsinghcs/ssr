@@ -1,4 +1,4 @@
-import { CandidateHiringProfile } from '../types';
+import { CandidateHiringProfile, ResumeExperienceItem, ResumeProjectItem } from '../types';
 
 export const PROFILE = {
   name: 'Shubham Singh',
@@ -34,25 +34,81 @@ export const HIRING_PROFILE: CandidateHiringProfile = {
     {
       degree: 'B.Tech in Computer Science and Engineering',
       institution: 'Indo Global College of Engineering (IGC), Chandigarh',
-      year: '2023 — 2027 (Pursuing)'
+      year: 'Expected May 2027'
     }
   ],
   competencies: [
     {
-      category: 'Languages & Core',
-      skills: ['Python', 'JavaScript (ES6+)', 'C++', 'HTML5', 'CSS3']
+      category: 'Languages',
+      skills: ['JavaScript', 'TypeScript', 'Python', 'SQL', 'HTML/CSS']
     },
     {
-      category: 'Frontend Frameworks',
-      skills: ['React.js', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'Responsive Web Design']
+      category: 'Tools & Frameworks',
+      skills: ['React.js', 'Next.js', 'Node.js', 'Express.js', 'Django', 'REST APIs', 'Tailwind CSS', 'Git', 'GitHub Copilot']
     },
     {
-      category: 'Backend & Database',
-      skills: ['Django', 'Node.js', 'REST APIs', 'PostgreSQL', 'MongoDB', 'Firebase', 'MySQL']
+      category: 'Databases & Cloud',
+      skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Google Cloud Platform (GCP)']
     },
     {
-      category: 'Tools, Cloud & AI',
-      skills: ['Git', 'GitHub', 'Vercel', 'Google Cloud Platform', 'AI Prompt Engineering', 'GitHub Copilot']
+      category: 'Core Computer Science',
+      skills: ['Data Structures & Algorithms (DSA)', 'Object-Oriented Programming (OOP)', 'DBMS', 'Web Development']
     }
   ]
 };
+
+export const RESUME_EXPERIENCES: ResumeExperienceItem[] = [
+  {
+    id: 'resume-viziane',
+    role: 'Operations & Client Success Lead',
+    type: 'Full Time',
+    company: 'Viziane',
+    period: 'Apr 2026 — Present',
+    location: 'Chandigarh, India',
+    highlights: [
+      'Direct technical delivery, client communications, and operational workflows for agency engineering projects, keeping execution organized and clients informed.',
+      'Streamline technical project scoping and client onboarding processes, resulting in improved project delivery timelines and reduced overhead.'
+    ]
+  },
+  {
+    id: 'resume-nextute',
+    role: 'Frontend Developer Intern',
+    type: 'Internship',
+    company: 'Nextute EdTech Pvt. Ltd.',
+    period: 'Jun 2025 — Sep 2025',
+    location: 'Remote',
+    highlights: [
+      'Developed and optimized dynamic frontend web applications using React.js and Next.js, enhancing responsiveness across key learning platforms.',
+      'Collaborated with product teams to build modular UI components, integrating RESTful APIs to support reliable user flows.'
+    ]
+  }
+];
+
+export const COMMUNITY_LEADERSHIP: ResumeExperienceItem[] = [
+  {
+    id: 'resume-gdg',
+    role: 'Organizer',
+    type: '',
+    company: 'GDG on Campus IGC',
+    period: 'Aug 2025 — Present',
+    location: 'Indo Global College of Engineering, Chandigarh, India',
+    highlights: [
+      'Managed community developer initiatives, technical workshops, and hackathons (including TechSprint), driving hands-on AI and Cloud learning journeys.'
+    ]
+  }
+];
+
+export const RESUME_PROJECTS: ResumeProjectItem[] = [
+  {
+    title: 'Teacher-Student Feedback Platform',
+    technologies: ['Python', 'Django', 'PostgreSQL', 'HTML/CSS'],
+    githubUrl: 'https://github.com/shubhamsinghcs',
+    description: 'Engineered a secure web portal for structured feedback submission and analytics between faculty and students. Implemented role-based access control, automated report generation, and robust authentication workflows.'
+  },
+  {
+    title: 'AI-Powered Code Review Assistant',
+    technologies: ['Next.js', 'Node.js', 'OpenAI API', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/shubhamsinghcs',
+    description: 'Developed an automated code audit tool that provides instant feedback on code quality, security vulnerabilities, and performance optimization directly within developer workflows.'
+  }
+];

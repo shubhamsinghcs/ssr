@@ -53,8 +53,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
         <nav
           className={`pointer-events-auto mx-auto flex items-center justify-between transition-all duration-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 border ${
             isScrolled
-              ? 'bg-[#0B0B0C]/85 backdrop-blur-xl border-[#27272A] shadow-[0_12px_32px_rgba(0,0,0,0.65)] max-w-5xl'
-              : 'bg-[#0B0B0C]/50 backdrop-blur-md border-[#1F1F23] max-w-6xl'
+              ? 'bg-[rgba(15,15,15,0.65)] backdrop-blur-lg border-[rgba(255,255,255,0.08)] shadow-[0_10px_30px_rgba(0,0,0,0.24)] max-w-5xl'
+              : 'bg-[rgba(15,15,15,0.65)] backdrop-blur-lg border-[rgba(255,255,255,0.08)] shadow-[0_10px_30px_rgba(0,0,0,0.24)] max-w-6xl'
           }`}
           aria-label="Main Navigation"
         >
@@ -73,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           </div>
 
           {/* Center: Segmented Navigation Dock with Active State Tracking */}
-          <div className="hidden md:flex items-center p-1 rounded-full bg-[#111113]/80 border border-[#242426]">
+          <div className="hidden md:flex items-center">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -82,8 +82,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                   href={item.href}
                   className={`relative px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-[#7C7CFF] ${
                     isActive
-                      ? 'text-[#F5F5F5] font-semibold bg-[#1C1C20] shadow-sm'
-                      : 'text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#161619]'
+                      ? 'text-white font-semibold'
+                      : 'text-[#A3A3A3] hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -99,10 +99,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           <div className="hidden sm:flex items-center gap-2">
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono text-[#A1A1AA] hover:text-[#F5F5F5] bg-[#111113] hover:bg-[#1a1a1e] border border-[#242426] transition-all focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono text-white hover:text-white bg-white/6 hover:bg-white/10 border border-white/12 transition-all focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
               title="View ATS Curriculum Vitae & PDF"
             >
-              <FileText className="w-3 h-3 text-[#7C7CFF]" />
+              <FileText className="w-3 h-3 text-white" />
               <span>Resume</span>
             </button>
 

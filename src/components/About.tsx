@@ -1,10 +1,10 @@
 import React from 'react';
-import { Github, Linkedin, Mail, MapPin, CheckCircle2, ShieldCheck, GraduationCap, Clock, Award, Terminal, Server, Cpu, Globe } from 'lucide-react';
+import { Github, Linkedin, Mail, CheckCircle2, Terminal, Server, Cpu, Globe } from 'lucide-react';
 import { PROFILE, HIRING_PROFILE } from '../data';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#242426]">
+    <section id="about" className="py-16 md:py-20 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#242426]">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         
         {/* Left Column - Profile & Quick Screening Card */}
@@ -19,35 +19,25 @@ export const About: React.FC = () => {
               <div>
                 <h3 className="text-xl font-bold text-[#F5F5F5]">{PROFILE.name}</h3>
                 <p className="text-xs font-mono text-[#7C7CFF]">{PROFILE.title}</p>
-                <p className="text-xs text-[#71717A] mt-0.5">Indo Global College of Engineering</p>
               </div>
             </div>
 
-            {/* Screening Details */}
-            <div className="space-y-3 pt-2 text-xs font-mono text-[#A1A1AA] border-t border-[#242426]">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#7C7CFF]" />
-                <span>{PROFILE.location} (Open to Remote / On-site)</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="text-emerald-400">{HIRING_PROFILE.workAuthorization}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-[#7C7CFF]" />
-                <span>{HIRING_PROFILE.availability}</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <GraduationCap className="w-3.5 h-3.5 text-[#7C7CFF] shrink-0 mt-0.5" />
-                <span>B.Tech CSE — Indo Global College (2023–2027)</span>
-              </div>
+            <div className="pt-2 border-t border-[#242426] space-y-3 text-sm text-[#A1A1AA] leading-relaxed">
+              <p>
+                I’m a full-stack developer who likes taking an idea from the first screen all the way to a working product.
+              </p>
+              <p>
+                I work across React, Next.js, JavaScript, TypeScript, databases, and backend systems, with a focus on keeping things simple and reliable.
+              </p>
+              <p>
+                Outside of coding, I spend time building communities, organizing tech events, and learning by building things that solve real problems.
+              </p>
             </div>
 
             {/* Certifications Block */}
             <div className="pt-3 border-t border-[#242426] space-y-2">
-              <div className="text-[11px] font-mono uppercase tracking-wider text-[#71717A] flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5 text-[#7C7CFF]" />
-                <span>Certificates & Training</span>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#7C7CFF]">
+                Certificates & Training
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {['Prompt Engineering', 'Google Cloud Study Jams (Gen AI)', 'TCS iON Career Edge'].map((cert) => (
@@ -60,7 +50,7 @@ export const About: React.FC = () => {
 
             {/* Interests */}
             <div className="pt-2 border-t border-[#242426] space-y-1.5 text-xs text-[#A1A1AA]">
-              <div className="text-[11px] font-mono uppercase tracking-wider text-[#71717A]">
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#7C7CFF]">
                 Focus & Interests
               </div>
               <div className="flex flex-wrap gap-2 text-xs font-mono text-[#D4D4D8]">
@@ -180,11 +170,6 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-6 border-t border-[#242426] flex flex-wrap gap-6 text-xs font-mono text-[#A1A1AA]">
-            <div><span className="text-[#F5F5F5] font-bold">Institution:</span> Indo Global College of Engineering, Chandigarh</div>
-            <div><span className="text-[#F5F5F5] font-bold">Graduation:</span> 2027 (Pre-final Year)</div>
-            <div><span className="text-[#F5F5F5] font-bold">Target:</span> Full-Stack / Frontend Roles &amp; Internships</div>
-          </div>
         </div>
 
       </div>

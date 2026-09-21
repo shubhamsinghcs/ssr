@@ -9,7 +9,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-6 md:px-12 max-w-7xl mx-auto">
+    <section className="relative pt-32 pb-10 md:pt-40 md:pb-16 px-6 md:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col items-start z-10 max-w-4xl">
         
         {/* Animated Hero Label */}

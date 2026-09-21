@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, Copy, Check, ArrowUpRight } from 'lucide-react';
+import { Mail, Send, Copy, Check } from 'lucide-react';
 import { PROFILE } from '../data';
 
 export const Contact: React.FC = () => {
@@ -27,7 +27,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#242426]">
+    <section id="contact" className="py-16 md:py-20 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#242426]">
       <div className="bg-[#0B0B0C] border border-[#242426] rounded-2xl p-6 sm:p-10 md:p-14 relative overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           
@@ -37,34 +37,30 @@ export const Contact: React.FC = () => {
               GET IN TOUCH
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F5F5F5] leading-tight">
-              Let's build something useful.
+              Let’s build something useful.
             </h2>
             <p className="text-base text-[#A1A1AA] leading-relaxed max-w-lg">
-              I am available for full-stack and frontend roles, internships, and freelance collaborations. If you have an opening, an interesting project, or want to discuss practical systems, my inbox is always open.
+              I’m open to full-stack and frontend opportunities, internships, and freelance work. Whether you’re building a new product, improving an existing one, or have an idea worth exploring, feel free to reach out. I’m always up for good conversations and useful things to build.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
                 href={`mailto:${PROFILE.email}?subject=Opportunity%20Discussion`}
-                className="inline-flex items-center gap-2 bg-[#F5F5F5] hover:bg-[#e0e0e0] text-[#050505] font-semibold px-5 py-3 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
+                className="inline-flex items-center gap-2 bg-[#F5F5F5] hover:bg-[#e0e0e0] text-[#050505] font-semibold px-5 py-3 rounded-lg text-xs font-mono tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
               >
                 <Mail className="w-4 h-4" />
-                <span>{PROFILE.email}</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <span className="text-[0.6875rem]">{PROFILE.email}</span>
               </a>
 
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 bg-[#111113] hover:bg-[#1a1a1e] text-[#F5F5F5] font-semibold px-4 py-3 rounded-lg text-xs font-mono uppercase tracking-wider border border-[#242426] transition-colors focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
+                className="inline-flex items-center gap-2 bg-[#111113] hover:bg-[#1a1a1e] text-[#F5F5F5] font-semibold px-4 py-3 rounded-lg text-[0.6875rem] font-mono tracking-wider border border-[#242426] transition-colors focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
               >
                 {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-[#7C7CFF]" />}
                 <span>{copied ? 'Copied' : 'Copy Email'}</span>
               </button>
             </div>
 
-            <div className="text-xs font-mono text-[#A1A1AA] pt-2">
-              Phone: <span className="text-[#F5F5F5]">{PROFILE.phone}</span> | Location: <span className="text-[#F5F5F5]">{PROFILE.location}</span>
-            </div>
           </div>
 
           {/* Right Column - Direct Message Form */}
@@ -100,7 +96,6 @@ export const Contact: React.FC = () => {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Jane Doe"
                       className="w-full bg-[#050505] border border-[#242426] focus:border-[#7C7CFF] rounded-lg px-4 py-3 text-sm text-[#F5F5F5] placeholder:text-[#71717A] focus:outline-none transition-colors"
                     />
                   </div>
@@ -114,7 +109,6 @@ export const Contact: React.FC = () => {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="jane@company.com"
                       className="w-full bg-[#050505] border border-[#242426] focus:border-[#7C7CFF] rounded-lg px-4 py-3 text-sm text-[#F5F5F5] placeholder:text-[#71717A] focus:outline-none transition-colors"
                     />
                   </div>
@@ -128,7 +122,6 @@ export const Contact: React.FC = () => {
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell me about your project or opportunity..."
                       className="w-full bg-[#050505] border border-[#242426] focus:border-[#7C7CFF] rounded-lg px-4 py-3 text-sm text-[#F5F5F5] placeholder:text-[#71717A] focus:outline-none transition-colors resize-none"
                     />
                   </div>

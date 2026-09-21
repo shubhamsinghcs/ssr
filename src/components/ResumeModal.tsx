@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { X, FileText, Printer, Mail, Github, Linkedin, MapPin, Phone, Award, GraduationCap } from 'lucide-react';
-import { PROFILE, EXPERIENCES, HIRING_PROFILE, PROJECTS } from '../data';
+import {
+  PROFILE,
+  HIRING_PROFILE,
+  RESUME_EXPERIENCES,
+  COMMUNITY_LEADERSHIP,
+  RESUME_PROJECTS
+} from '../data';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -37,7 +43,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/85 backdrop-blur-md overflow-y-auto">
       <div 
-        className={`relative w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col transition-colors ${
+        className={`resume-dialog relative w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col transition-colors ${
           viewMode === 'ats' 
             ? 'bg-white text-gray-900 border border-gray-300' 
             : 'bg-[#0B0B0C] text-[#F5F5F5] border border-[#242426]'
@@ -196,19 +202,19 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               Work Experience
             </h3>
             <div className="space-y-6">
-              {EXPERIENCES.map((exp) => (
+              {RESUME_EXPERIENCES.map((exp) => (
                 <div key={exp.id} className="space-y-2">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
                     <h4 className={`text-base font-bold ${viewMode === 'ats' ? 'text-gray-900' : 'text-[#F5F5F5]'}`}>
-                      {exp.company} <span className={viewMode === 'ats' ? 'text-indigo-700 font-semibold' : 'text-[#7C7CFF]'}>— {exp.role}</span>
+                      {exp.role} <span className={viewMode === 'ats' ? 'text-indigo-700 font-semibold' : 'text-[#7C7CFF]'}>| {exp.type}</span>
                     </h4>
                     <span className={`text-xs font-mono ${viewMode === 'ats' ? 'text-gray-500' : 'text-[#71717A]'}`}>
-                      {exp.period} | {exp.location}
+                      {exp.period}
                     </span>
                   </div>
-                  <p className={`text-xs italic ${viewMode === 'ats' ? 'text-gray-600' : 'text-[#A1A1AA]'}`}>
-                    {exp.summary}
-                  </p>
+                  <div className={`text-xs font-semibold ${viewMode === 'ats' ? 'text-gray-700' : 'text-[#D4D4D8]'}`}>
+                    {exp.company} <span className="font-normal">{exp.location}</span>
+                  </div>
                   <ul className="space-y-1.5 pt-1">
                     {exp.highlights.map((h, i) => (
                       <li key={i} className={`text-xs flex items-start gap-2 leading-relaxed ${
@@ -216,6 +222,42 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                       }`}>
                         <span className={`font-bold mt-0.5 ${viewMode === 'ats' ? 'text-indigo-600' : 'text-[#7C7CFF]'}`}>-</span>
                         <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Community Leadership */}
+          <div className="space-y-5">
+            <h3 className={`text-xs font-mono uppercase tracking-widest font-bold ${
+              viewMode === 'ats' ? 'text-gray-900 border-b border-gray-200 pb-1' : 'text-[#7C7CFF]'
+            }`}>
+              Community Leadership
+            </h3>
+            <div className="space-y-6">
+              {COMMUNITY_LEADERSHIP.map((item) => (
+                <div key={item.id} className="space-y-2">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                    <h4 className={`text-base font-bold ${viewMode === 'ats' ? 'text-gray-900' : 'text-[#F5F5F5]'}`}>
+                      {item.role} <span className={viewMode === 'ats' ? 'text-indigo-700 font-semibold' : 'text-[#7C7CFF]'}>| {item.company}</span>
+                    </h4>
+                    <span className={`text-xs font-mono ${viewMode === 'ats' ? 'text-gray-500' : 'text-[#71717A]'}`}>
+                      {item.period}
+                    </span>
+                  </div>
+                  <div className={`text-xs font-semibold ${viewMode === 'ats' ? 'text-gray-700' : 'text-[#D4D4D8]'}`}>
+                    {item.location}
+                  </div>
+                  <ul className="space-y-1.5 pt-1">
+                    {item.highlights.map((highlight, index) => (
+                      <li key={index} className={`text-xs flex items-start gap-2 leading-relaxed ${
+                        viewMode === 'ats' ? 'text-gray-700' : 'text-[#F5F5F5]'
+                      }`}>
+                        <span className={`font-bold mt-0.5 ${viewMode === 'ats' ? 'text-indigo-600' : 'text-[#7C7CFF]'}`}>-</span>
+                        <span>{highlight}</span>
                       </li>
                     ))}
                   </ul>
@@ -232,24 +274,22 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               Key Projects
             </h3>
             <div className="space-y-4">
-              {PROJECTS.slice(0, 3).map((proj) => (
+              {RESUME_PROJECTS.map((proj) => (
                 <div key={proj.id} className="space-y-1">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
                     <h4 className={`text-sm font-bold ${viewMode === 'ats' ? 'text-gray-900' : 'text-[#F5F5F5]'}`}>
                       {proj.title}
+                      <a href={proj.githubUrl} target="_blank" rel="noopener noreferrer" className="ml-2 text-[11px] font-normal text-indigo-600 hover:underline">
+                        GitHub
+                      </a>
                     </h4>
                     <span className={`text-[11px] font-mono ${viewMode === 'ats' ? 'text-gray-500' : 'text-[#71717A]'}`}>
                       {proj.technologies.join(', ')}
                     </span>
                   </div>
                   <p className={`text-xs ${viewMode === 'ats' ? 'text-gray-700' : 'text-[#A1A1AA]'}`}>
-                    {proj.problem}
+                    {proj.description}
                   </p>
-                  {proj.tradeoffSummary && (
-                    <p className={`text-xs italic ${viewMode === 'ats' ? 'text-gray-600' : 'text-[#7C7CFF]'}`}>
-                      Architecture Note: {proj.tradeoffSummary}
-                    </p>
-                  )}
                 </div>
               ))}
             </div>

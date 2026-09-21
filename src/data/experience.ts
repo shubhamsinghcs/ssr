@@ -38,9 +38,9 @@ export const EXPERIENCES: ExperienceItem[] = [
     company: 'VIZIANE',
     period: 'Apr 2024 — Present',
     location: 'Chandigarh / Remote',
-    summary: 'Liaising between enterprise clients and technical development teams to ensure seamless milestone delivery and high client retention.',
+    summary: 'Liaising between enterprise clients and technical development teams to keep milestone delivery on track and support client retention.',
     highlights: [
-      'Liaise between clients and development teams to ensure seamless project delivery and maximize client retention.',
+      'Liaise between clients and development teams to keep project delivery on track and maximize client retention.',
       'Manage operational workflows and facilitate weekly team syncs to ensure project milestones are met on schedule.',
       'Translate client requirements into structured technical deliverables, reducing delivery bottlenecks.'
     ],
