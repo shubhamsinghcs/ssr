@@ -110,6 +110,8 @@ export const Navbar: React.FC<NavbarProps> = ({ resumeUrl }) => {
 
             <a
               href={WORK_WITH_ME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium text-[#050505] bg-[#F5F5F5] hover:bg-white transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
             >
               <span>Work with me</span>
@@ -179,6 +181,8 @@ export const Navbar: React.FC<NavbarProps> = ({ resumeUrl }) => {
 
               <a
                 href={WORK_WITH_ME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-mono font-medium text-[#050505] bg-[#F5F5F5]"
               >

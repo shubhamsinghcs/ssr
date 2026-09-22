@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Send, Copy, Check } from 'lucide-react';
-import { PROFILE } from '../data';
+import { createGmailComposeUrl, PROFILE } from '../data';
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -20,9 +20,9 @@ export const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    const subject = encodeURIComponent(`Portfolio inquiry from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`);
-    window.location.href = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`;
+    const subject = `Portfolio inquiry from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
+    window.location.href = createGmailComposeUrl(subject, body);
     setSubmitted(true);
   };
 
@@ -45,7 +45,9 @@ export const Contact: React.FC = () => {
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
-                href={`mailto:${PROFILE.email}?subject=Opportunity%20Discussion`}
+                href={createGmailComposeUrl('Opportunity Discussion', 'Hi Shubham,\n\nI would like to discuss an opportunity with you.\n')}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#F5F5F5] hover:bg-[#e0e0e0] text-[#050505] font-semibold px-5 py-3 rounded-lg text-xs font-mono tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
               >
                 <Mail className="w-4 h-4" />

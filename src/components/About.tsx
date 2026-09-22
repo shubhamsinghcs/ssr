@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, CheckCircle2, Terminal, Server, Cpu, Globe } from 'lucide-react';
+import { Github, Linkedin, Mail, CheckCircle2, Terminal, Server, Cpu } from 'lucide-react';
 import { PROFILE, HIRING_PROFILE } from '../data';
 
 export const About: React.FC = () => {
@@ -88,7 +88,7 @@ export const About: React.FC = () => {
                 aria-label="X Twitter profile"
                 title="X (Twitter)"
               >
-                <Globe className="w-4 h-4" />
+                <span className="flex h-4 w-4 items-center justify-center text-sm font-black leading-none" aria-hidden="true">X</span>
               </a>
               <a
                 href={`mailto:${PROFILE.email}`}

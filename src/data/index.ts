@@ -3,6 +3,7 @@ export { CAPABILITIES, EXPERIENCES } from './experience';
 export {
 	PROFILE,
 	WORK_WITH_ME_URL,
+	createGmailComposeUrl,
 	HIRING_PROFILE,
 	RESUME_EXPERIENCES,
 	COMMUNITY_LEADERSHIP,

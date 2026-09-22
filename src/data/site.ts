@@ -20,7 +20,22 @@ export const PROFILE = {
   status: 'ABSOLUTE LEARNER'
 };
 
-export const WORK_WITH_ME_URL = `mailto:${PROFILE.email}?subject=${encodeURIComponent('Portfolio inquiry')}&body=${encodeURIComponent('Hi Shubham,\n\nI would like to discuss a project or opportunity with you.\n\nBest,\n')}`;
+export const createGmailComposeUrl = (subject: string, body: string) => {
+  const params = new URLSearchParams({
+    view: 'cm',
+    fs: '1',
+    to: PROFILE.email,
+    su: subject,
+    body
+  });
+
+  return `https://mail.google.com/mail/?${params.toString()}`;
+};
+
+export const WORK_WITH_ME_URL = createGmailComposeUrl(
+  'Portfolio inquiry',
+  'Hi Shubham,\n\nI would like to discuss a project or opportunity with you.\n\nBest,\n'
+);
 
 export const HIRING_PROFILE: CandidateHiringProfile = {
   name: 'Shubham Singh',
