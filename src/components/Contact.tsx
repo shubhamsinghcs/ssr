@@ -6,6 +6,8 @@ export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [sendError, setSendError] = useState('');
 
   const handleCopyEmail = async () => {
     try {
@@ -17,13 +19,36 @@ export const Contact: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    const subject = `Portfolio inquiry from ${formData.name}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
-    window.location.href = createGmailComposeUrl(subject, body);
-    setSubmitted(true);
+    setIsSending(true);
+    setSendError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => null);
+        throw new Error(result?.error || 'Message delivery failed');
+      }
+      setSubmitted(true);
+    } catch {
+      setSendError('Unable to send the message right now. Please email me directly.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -130,11 +155,17 @@ export const Contact: React.FC = () => {
 
                   <button
                     type="submit"
+                    disabled={isSending}
                     className="w-full flex items-center justify-center gap-2 bg-[#F5F5F5] hover:bg-[#e0e0e0] text-[#050505] font-semibold py-3.5 rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
                   >
-                    <span>Send Message</span>
+                    <span>{isSending ? 'Sending...' : 'Send Message'}</span>
                     <Send className="w-4 h-4" />
                   </button>
+                  {sendError && (
+                    <p role="alert" className="text-xs text-red-300">
+                      {sendError}
+                    </p>
+                  )}
                 </form>
               )}
             </div>
