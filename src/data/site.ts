@@ -13,11 +13,14 @@ export const PROFILE = {
   availability: 'Available for Full-time Roles, Internships & Freelance Collaborations',
   email: 'ssingh.cs23@gmail.com',
   altEmail: 'ssingh.csee34@gmail.com',
+  resumeUrl: 'https://drive.google.com/file/d/1Iji7cclxeX072gYlTnVnmkj_WNpTHAJw/view?usp=sharing',
   github: 'https://github.com/shubhamsinghcs',
   linkedin: 'https://www.linkedin.com/in/shubham-singh-engg/',
   twitter: 'https://x.com/SSR23__/',
   status: 'ABSOLUTE LEARNER'
 };
+
+export const WORK_WITH_ME_URL = `mailto:${PROFILE.email}?subject=${encodeURIComponent('Portfolio inquiry')}&body=${encodeURIComponent('Hi Shubham,\n\nI would like to discuss a project or opportunity with you.\n\nBest,\n')}`;
 
 export const HIRING_PROFILE: CandidateHiringProfile = {
   name: 'Shubham Singh',

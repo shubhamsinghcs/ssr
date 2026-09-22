@@ -4,10 +4,10 @@ import { PROFILE } from '../data';
 import { ParticleText } from './ParticleText';
 
 interface HeroProps {
-  onOpenResume: () => void;
+  resumeUrl: string;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
+export const Hero: React.FC<HeroProps> = ({ resumeUrl }) => {
   return (
     <section className="relative pt-32 pb-10 md:pt-40 md:pb-16 px-6 md:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col items-start z-10 max-w-4xl">
@@ -41,13 +41,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             <ArrowDown className="w-3.5 h-3.5" />
           </a>
 
-          <button
-            onClick={onOpenResume}
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#0B0B0C] hover:bg-[#111113] text-[#F5F5F5] font-semibold px-5 py-3.5 rounded-lg text-xs font-mono uppercase tracking-wider border border-[#242426] transition-colors focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
           >
             <FileText className="w-3.5 h-3.5 text-[#7C7CFF]" />
-            <span>Resume / PDF</span>
-          </button>
+            <span>Resume</span>
+          </a>
         </div>
 
       </div>

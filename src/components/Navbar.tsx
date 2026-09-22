@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, FileText } from 'lucide-react';
-import { PROFILE } from '../data';
+import { WORK_WITH_ME_URL } from '../data';
 
 interface NavbarProps {
-  onOpenResume: () => void;
+  resumeUrl: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
+export const Navbar: React.FC<NavbarProps> = ({ resumeUrl }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -97,17 +97,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
           {/* Right: Refined Action Capsule (Resume + Work With Me) */}
           <div className="hidden sm:flex items-center gap-2">
-            <button
-              onClick={onOpenResume}
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono text-white hover:text-white bg-white/6 hover:bg-white/10 border border-white/12 transition-all focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
-              title="View ATS Curriculum Vitae & PDF"
+              title="Download resume"
             >
               <FileText className="w-3 h-3 text-white" />
               <span>Resume</span>
-            </button>
+            </a>
 
             <a
-              href={`mailto:${PROFILE.email}`}
+              href={WORK_WITH_ME_URL}
               className="group inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium text-[#050505] bg-[#F5F5F5] hover:bg-white transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#7C7CFF]"
             >
               <span>Work with me</span>
@@ -117,14 +119,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
           {/* Mobile Menu Trigger */}
           <div className="flex sm:hidden items-center gap-2">
-            <button
-              onClick={onOpenResume}
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-2 rounded-full bg-[#111113] border border-[#242426] text-[#A1A1AA] text-xs font-mono"
               aria-label="Resume"
-              title="Resume"
+              title="Download resume"
             >
               <FileText className="w-3.5 h-3.5 text-[#7C7CFF]" />
-            </button>
+            </a>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -162,19 +166,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             </div>
 
             <div className="pt-2 border-t border-[#1F1F23] space-y-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenResume();
-                }}
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-mono text-[#A1A1AA] bg-[#111113] border border-[#242426]"
               >
                 <FileText className="w-3.5 h-3.5 text-[#7C7CFF]" />
                 <span>View Resume</span>
-              </button>
+              </a>
 
               <a
-                href={`mailto:${PROFILE.email}`}
+                href={WORK_WITH_ME_URL}
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-mono font-medium text-[#050505] bg-[#F5F5F5]"
               >
